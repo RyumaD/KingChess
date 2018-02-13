@@ -1,0 +1,19 @@
+<div>
+    <nav>
+        <div (click)="goMenu()">Game</div>
+        <div (click)="goProfil()">Profil</div>
+        <div (click)="goAdmin()" *ngIf="validAdmin">Gestion Admin</div>
+        <div (click)="goForum()">Forum</div>
+        <div (click)="LogOut()">Deconnexion</div>
+    </nav>
+    <div *ngIf="flagMenu && gameOn == false" [@flyInOut]="'in'">
+        <div>Vous ete connecte en tant que {{username}}</div>
+        <h2>KingChess</h2>
+        <button (click)="goGame('play')">Play</button>
+        <button (click)="goGame('tuto')">Tutorial</button> 
+    </div>
+    <app-game *ngIf="gameOn" [username]="username" [gameTuto]="gameTuto" id="game" class="wh flex"[@flyInOut]="'in'"></app-game>
+    <div *ngIf="flagProfil && gameOn == false" [@flyInOut]="'in'">Hey</div>
+    <div *ngIf="flagForum && gameOn == false" [@flyInOut]="'in'">yosh</div>
+    <div *ngIf="flagAdmin && gameOn == false" [@flyInOut]="'in'">plop</div>
+</div>

@@ -1,0 +1,22 @@
+<section *ngIf="flagAuth == false && flagMenu == false" id="seclog">
+  <div id="logvision">
+    <h1>KingChess</h1>
+    <h4>Battle for the land</h4>
+    <button *ngIf="buttreg" (click)="switchlog(true)">go to Register</button>
+    <button *ngIf="buttlog" (click)="switchlog(false)">go to Login</button>
+    <div id="login" *ngIf="wantregister == false">
+      <h2>LogIn</h2>
+      <input type="text" placeholder="Username" [(ngModel)]="login.username" class="inputlog">
+      <input type="text" placeholder="Password" [(ngModel)]="login.password" class="inputlog">
+      <button id="buttlog" (click)="LogIn()" class="inputlog">Login</button>
+    </div>
+    <div id="register" *ngIf="wantregister">
+      <h2>SignIn</h2> 
+      <input type="text" placeholder="Username" [(ngModel)]="signin.username" class="inputlog">
+      <input type="text" placeholder="Password" [(ngModel)]="signin.password" class="inputlog">
+      <button id="buttreg" (click)="SignIn()" class="inputlog">Register</button>
+    </div>
+  </div>
+</section>
+<app-menu *ngIf="flagMenu" [username]="username" class="wh"></app-menu>
+ 
